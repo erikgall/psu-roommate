@@ -11,11 +11,11 @@ class Answer extends Model {
    *
    * @var array
    */
-  protected $fillable = ['name', 'questions_id', 'position'];
+  protected $fillable = ['name', 'questions_id', 'position', 'score'];
 
   public function question() {
 
     return $this->belongsTo(Question::class);
-    
+
   }
 }

@@ -17,6 +17,7 @@ class CreateAnswersTable extends Migration {
       $table->increments('id');
       $table->string('name');
       $table->integer('question_id')->unsigned();
+      $table->integer('score')->default(1);
       $table->integer('position')->default(1);
       $table->timestamps();
 
