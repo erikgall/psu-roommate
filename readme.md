@@ -1,1 +1,1 @@
-#  PSU IST Roommate App
+#  PSU IST 440W Roommate App
