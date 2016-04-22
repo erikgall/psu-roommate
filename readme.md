@@ -11,7 +11,7 @@ It can be seen online (until May 15th, 2016) at [https://egall.me](https://egall
 - [Let's Encrypt SSL](https://letsencrypt.org/ "Lets Encrypt")
 - [Laravel Forge](https://forge.laravel.com "Laravel Forge")
 
-#### Built With
+#### Software
 - [Laravel PHP Framework](https://laravel.com "LaraveL")
 - [Gulp/Elixir](https://www.laravel.com/docs/5.2/elixir "Laravel Elixir")
 - [Bootstrap](https://getbootstrap.com "Bootstrap") 
