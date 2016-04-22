@@ -101,6 +101,8 @@
 
     @yield('content')
 
+    @include('shared.footer')
+
         <!-- JavaScripts -->
      <script src="{{ elixir('js/app.js') }}"></script>
     @include('shared.flash')
