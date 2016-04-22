@@ -13,6 +13,13 @@ class Answer extends Model {
    */
   protected $fillable = ['name', 'questions_id', 'position', 'score'];
 
+  public function responses()
+  {
+
+    return $this->hasMany(Response::class);
+
+  }
+
   public function question() {
 
     return $this->belongsTo(Question::class);

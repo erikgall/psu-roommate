@@ -1,2 +1,14 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Bootstrap Theme
+@import "theme/variables";
+
+
+// Import Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/sweetalert/dev/sweetalert";
+
+@import "theme/settings";
+
+// Roommate app
+@import "roommate/survey";
+@import "roommate/navbar";

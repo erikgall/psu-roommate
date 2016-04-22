@@ -7,41 +7,49 @@ class CreateUsersTable extends Migration
 {
 
     /**
-   * Run the migrations.
-   *
-   * @return void
-   */
-  public function up()
-  {
-      Schema::create('users', function (Blueprint $table) {
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
 
-      $table->increments('id');
-      $table->string('name');
-      $table->string('email')->unique();
-      $table->string('password');
-      $table->integer('school_id')->unsigned();
-      $table->integer('gender_id')->unsigned();
-      $table->string('stripe_id')->nullable();
-      $table->rememberToken();
-      $table->timestamps();
+        Schema::create('users', function (Blueprint $table) {
 
-      $table->foreign('school_id')
-            ->references('id')
-            ->on('schools');
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->dateTime('dob');
+            $table->integer('school_id')->unsigned();
+            $table->integer('gender_id')->unsigned();
+            $table->integer('academic_status_id')->unsigned();
+            $table->string('stripe_id')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
 
-      $table->foreign('gender_id')
-            ->references('id')
-            ->on('genders');
-    });
-  }
+            $table->foreign('school_id')
+                  ->references('id')
+                  ->on('schools');
 
-  /**
-   * Reverse the migrations.
-   *
-   * @return void
-   */
-  public function down()
-  {
-      Schema::drop('users');
-  }
+            $table->foreign('gender_id')
+                  ->references('id')
+                  ->on('genders');
+
+            $table->foreign('academic_status_id')
+                  ->references('id')
+                  ->on('academic_statuses');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+
+        Schema::drop('users');
+    }
 }

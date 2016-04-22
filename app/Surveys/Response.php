@@ -14,6 +14,8 @@ class Response extends Model
    */
   protected $fillable = ['user_id', 'answer_id'];
 
+  protected $with = ['answer'];
+
   public function answer() {
 
     return $this->belongsTo(Answer::class);

@@ -12,9 +12,41 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
-Route::auth();
+// Authentication Routes...
+Route::get('login', 'Auth\AuthController@showLoginForm');
+Route::post('login', 'Auth\AuthController@login');
+Route::get('logout', 'Auth\AuthController@logout');
 
-Route::get('/home', 'HomeController@index');
+// Registration Routes...
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@register');
+
+// Password Reset Routes...
+Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+Route::post('password/reset', 'Auth\PasswordController@reset');
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Surveys', 'prefix' => 'survey'], function() {
+
+    Route::get('', ['as' => 'surveys::index', 'uses' => 'SurveyController@index']);
+    Route::post('', ['as' => 'surveys::index', 'uses' => 'SurveyController@store']);
+    Route::get('start', ['as' => 'surveys::start', 'uses' => 'SurveyController@show']);
+
+});
+
+Route::group(['middleware' => ['auth', 'survey']], function () {
+
+    Route::get('/home', 'HomeController@index');
+    
+    Route::group(['prefix' => 'schools/{school}', 'namespace' => 'Schools', 'as' => 'schools::'], function() {
+        
+        Route::get('roommates', ['as' => 'roommates::index', 'uses' => 'Roommates\RoommateController@index']);
+        Route::get('roommates/{user}', ['as' => 'roommates::show', 'uses' => 'Roommates\RoommateController@show']);
+
+    });
+
+});

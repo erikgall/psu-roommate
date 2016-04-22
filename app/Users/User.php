@@ -2,45 +2,72 @@
 
 namespace App\Users;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Surveys\Response;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model {
+class User extends Authenticatable
+{
 
-  /**
-   * The attributes that are mass assignable.
-   *
-   * @var array
-   */
-  protected $fillable = [
-      'name', 'email', 'password', 'school_id', 'gender_id'
-  ];
+    protected $dates = ['dob'];
 
-  /**
-   * The attributes that should be hidden for arrays.
-   *
-   * @var array
-   */
-  protected $hidden = [
-      'password', 'remember_token',
-  ];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'school_id',
+        'gender_id',
+        'dob',
+        'academic_status_id'
+    ];
 
-  public function gender() {
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
-    return $this->belongsTo(Gender::class);
+    public function academicStatus()
+    {
 
-  }
+        return $this->belongsTo(AcademicStatus::class);
 
-  public function photos() {
+    }
+  
+    public function gender()
+    {
 
-    return $this->hasMany(Photo::class);
-    
-  }
+        return $this->belongsTo(Gender::class);
 
-  public function school() {
+    }
 
-    return $this->belongsTo(School::class);
+    public function photos()
+    {
 
-  }
+        return $this->hasMany(Photo::class);
 
+    }
+
+    public function school()
+    {
+
+        return $this->belongsTo(School::class);
+
+    }
+
+    public function responses()
+    {
+
+        return $this->hasMany(Response::class);
+
+    }
 
 }
