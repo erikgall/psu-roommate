@@ -9,7 +9,7 @@ It can be seen online (until May 15th, 2016) at [https://egall.me](https://egall
 #### Server
 - [Digital Ocean](https://digitalocean.com "Digital Ocean")
 - [Let's Encrypt SSL](https://letsencrypt.org/ "Lets Encrypt")
-- [Larave Forge](https://forge.laravel.com "Laravel Forge")
+- [Laravel Forge](https://forge.laravel.com "Laravel Forge")
 
 #### Built With
 - [Laravel PHP Framework](https://laravel.com "LaraveL")
