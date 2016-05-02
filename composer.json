@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -25,7 +28,8 @@
             "App\\": "app/"
         },
         "files": [
-          "app/helpers.php"
+            "app/helpers.php",
+            "tests/integration/IntegrationTestCase.php"
         ]
     },
     "autoload-dev": {

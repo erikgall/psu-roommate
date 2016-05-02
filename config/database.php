@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -76,6 +76,17 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
+        ],
+
+        'testing' => [
+            'driver'   => 'pgsql',
+            'host'     => env('TESTING_DB_HOST', '127.0.0.1'),
+            'database' => env('TESTING_DB_DATABASE', 'roommate_testing'),
+            'username' => env('TESTING_DB_USERNAME', 'homestead'),
+            'password' => env('TESTING_DB_PASSWORD', 'secret'),
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
         ],
 
     ],
